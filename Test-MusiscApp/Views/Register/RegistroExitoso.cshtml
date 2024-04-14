@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Registro Exitoso";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="alert alert-success" role="alert">
+    ¡El registro se ha completado exitosamente!
+</div>
+
+<p>El cliente ha sido registrado correctamente en nuestro sistema.</p>
+
+<a href="@Url.Action("Inventory", "Inventory")" class="btn btn-primary">Ir a Inventory</a>

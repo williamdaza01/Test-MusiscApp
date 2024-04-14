@@ -1,0 +1,43 @@
+﻿@model Test_MusiscApp.Models.Album
+
+@{
+    ViewData["Title"] = "Detalles del Álbum";
+}
+
+<h1>@ViewData["Title"]: @Model.Name</h1>
+
+<h3>Canciones</h3>
+@if (Model.Songs != null && Model.Songs.Any()) {
+<table class="table">
+        <thead>
+            <tr>
+                <th>Nombre de la Canción</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var song in Model.Songs)
+            {
+                <tr>
+                    <td>@song.Name</td>
+                    <td>
+                        <a asp-controller="Song" asp-action="Edit" asp-route-id="@song.Id">Edit</a> |
+                        <a asp-controller="Song" asp-action="Delete" asp-route-songId="@song.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} else
+{
+    <p>No hay canciones asociadas a este álbum.</p>
+}
+
+
+<div>
+    <a asp-action="Create" asp-route-albumId="@Model.Id">Agregar canción</a>
+</div>
+
+<div>
+    <a asp-controller="Inventory" asp-action="Inventory">Volver al inventario</a>
+</div>

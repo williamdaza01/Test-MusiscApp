@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Test_MusiscApp.Models.Album>
+
+<h1>Inventory</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var album in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Album" asp-action="Details" asp-route-albumid="@album.Id">@Html.DisplayFor(modelItem => album.Name)</a>
+                </td>
+                <td>
+                    <a asp-controller="Album" asp-action="Edit" asp-route-id="@album.Id">Edit</a> |
+                    <a asp-controller="Album" asp-action="Delete" asp-route-albumId="@album.Id">Delete</a>
+                </td>
+                <td>
+                    <a asp-action="CreateSong" asp-route-albumId="@album.Id">Agregar canción</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
