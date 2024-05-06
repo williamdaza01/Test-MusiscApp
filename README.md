@@ -22,7 +22,10 @@ Test-MusiscApp es una aplicación de prueba para gestionar álbumes y canciones.
 4. **Migraciones de la base de datos**:
    - En la terminal, ejecuta:
      ```
-     dotnet ef database update
+     Add-Migration nombredelamigracion
+     ```
+     ```
+     Update-Database
      ```
 
 5. **Ejecutar la aplicación**:
